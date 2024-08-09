@@ -1,6 +1,8 @@
 import os
 import streamlit.components.v1 as components
 from streamlit.elements.lib.utils import Key, to_key
+from streamlit.runtime.state import WidgetCallback
+from typing import List, Optional
 
 
 # Create a _RELEASE constant. We'll set this to False while we're developing
@@ -49,18 +51,32 @@ else:
 # output value, and add a docstring for users.
 def tag_input(
     label: str,
-    default: list[str] | None = None,
-    key: Key | None = None,
-    *,
     limit_tags: int = -1,
+    default: Optional[List[str]] = None,
+    key: Optional[Key] = None,
+    on_change: Optional[WidgetCallback] = None,
+    *,
     placeholder: str = "",
-    disabled: bool = False
-) -> list[str]:
+) -> List[str]:
+    """
+    Creates a tag input component.
+
+    Args:
+        label (str): The label for the tag input.
+        limit_tags (int): The maximum number of tags shown when not focused. Defaults to -1 (no limit).
+        default (Optional[List[str]]): The default list of tags. Defaults to None.
+        key (Optional[Union[str, int]]): A unique key for the component. Defaults to None.
+        on_change (Optional[WidgetCallback]): An optional callback invoked when the value changes.
+        placeholder (str): Placeholder text for the input field. Defaults to an empty string.
+
+    Returns:
+        List[str]: The list of tags entered by the user.
+    """
     return _component_func(
         label=label,
         limitTags=limit_tags,
         placeholder=placeholder,
-        disabled=disabled,
         default=default or [],
         key=to_key(key),
+        on_change=on_change,
     )
