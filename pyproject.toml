@@ -1,14 +1,13 @@
 [tool.poetry]
 name = "streamlit-tag-input"
 version = "0.1.0"
-description = ""
+description = "Tag input component for Streamlit."
 authors = ["Binhao Qin <bqin@nvidia.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.10.2"
 streamlit = "^1.37.0"
-
 
 [build-system]
 requires = ["poetry-core"]
