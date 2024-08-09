@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "streamlit-tag-input"
-version = "0.1.0"
+version = "0.2.0"
 description = "Tag input component for Streamlit."
 authors = ["Binhao Qin <bqin@nvidia.com>"]
 readme = "README.md"
